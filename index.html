@@ -9,13 +9,40 @@
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
+	<script>
+	var login = function() {
+		var url = 'https://blooming-cliffs-6326.herokuapp.com/';
+
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		var data = {
+			username: username,
+			password: password
+		};
+
+		$.post(url+'authUser', data)
+		.done(function(res) {
+			var status = res.status;
+			if (res.status === 'success') {
+				alert("Authenticated!");
+				window.location.replace("main.html?username=" + username);
+			}
+			else {
+				alert(res.message);
+			}
+		})
+		.fail(function(jqXHR, textStatus, errorThrown) {
+			alert("Text: " + textStatus + "\nthrown: " + errorThrown);
+		});
+	}
+	</script>
 	<style type="text/css">
 	</style>
 </head>
 <body>
 	<section id="loginBox" class="animated flipInY">
 		<h2>Login</h2>
-		<form method="post" class="minimal">
+		<!--<form class="minimal">-->
 			<label for="username">
 				<input type="username" name="username" id="username" placeholder="Username" required="required" />
 			</label>
@@ -25,14 +52,14 @@
 			<div class="checkbox">
 				<label><input type="checkbox"> Remember me</label>
 			</div>
-			<button type="submit" id="submit" class="btn-minimal">Sign in</button>
+			<button type="submit" id="submit" class="btn-minimal" onclick="login()">Sign in</button>
 			<div class="login-links">
 				<a href="forgot-password.html" class="forgot-password">Forgot password?</a>
 				<br>
 				<a href="sign-up.html" class="new-account">Don't have an account? <strong>Sign Up!</strong></a>
 				<span class="clearfix"></span>
 			</div>
-		</form>
+		<!--</form>-->
 	</section>
 </body>	
 <footer class="container">
@@ -40,5 +67,7 @@
 		<small>Copyright © 2014</small>
 	</p>
 </footer>
+
+
 
 </html>

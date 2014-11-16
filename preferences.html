@@ -11,6 +11,33 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
   <script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
+  <script>
+  var login = function() {
+    var url = 'https://blooming-cliffs-6326.herokuapp.com/';
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var data = {
+      username: username,
+      password: password
+    };
+
+    $.post(url+'authUser', data)
+    .done(function(res) {
+      var status = res.status;
+      if (res.status === 'success') {
+        alert("Authenticated!");
+        window.location.replace("main.html?username=" + username);
+      }
+      else {
+        alert(res.message);
+      }
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      alert("Text: " + textStatus + "\nthrown: " + errorThrown);
+    });
+  }
+  </script>
 </head>
 <style type="text/css">
 
