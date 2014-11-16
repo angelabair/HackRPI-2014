@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Coats for Arms</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
+</head>
+<style type="text/css">
+
+[data-role="page"] {
+  width: 50%;
+}
+
+.ui-content {
+
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+</style>
+<body>
+
+  <div data-role="page">
+    <div data-role="header">
+      <h1>Preferences</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <form method="post" action="demoform.asp">
+        <label for="points">Heat Tolerance:</label>
+        <input type="range" name="points" id="points" value="0" min="-1" max="1">
+      </form>
+    </div>
+    <div data-role="main" class="ui-content">
+      <form method="post" action="demoform.asp">
+        <label for="points">Chill Tolerance:</label>
+        <input type="range" name="points" id="points" value="0" min="-1" max="1">
+        <input type="submit" data-inline="true" value="Submit">
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
