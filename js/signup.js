@@ -4,6 +4,7 @@ function signUp() {
 	if (document.getElementById("matching").value === "true") {
 		var username = document.getElementById("username").value;
 		var password = document.getElementById("password").value;
+		alert("Username: " + username + "\npassword: " + password);
 		$.post(url+'/newUser', {
 			username: username, 
 			password: password
