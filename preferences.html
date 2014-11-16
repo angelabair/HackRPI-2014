@@ -11,57 +11,6 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
   <script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
-  <script>
-  var setPreferences = function() {
-    var url = 'https://blooming-cliffs-6326.herokuapp.com/';
-
-    var username = QueryString.username;
-    var data = {
-      username: username,
-      preferences: {
-        heatTolerance: document.getElementById('heat').value,
-        chillTolerance: document.getElementById('chill').value
-      }
-    };
-
-    $.post(url+'setUserPreferences', data)
-    .done(function(res) {
-      var status = res.status;
-      if (res.status === 'success') {
-        window.location.replace("main.html?username=" + username);
-      }
-      else {
-        alert(res.message);
-      }
-    })
-    .fail(function(jqXHR, textStatus, errorThrown) {
-      alert("Text: " + textStatus + "\nthrown: " + errorThrown);
-    });
-  }
-
-  var QueryString = function () {
-    // This function is anonymous, is executed immediately and 
-    // the return value is assigned to QueryString!
-    var query_string = {};
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
-      var pair = vars[i].split("=");
-        // If first entry with this name
-        if (typeof query_string[pair[0]] === "undefined") {
-          query_string[pair[0]] = pair[1];
-        // If second entry with this name
-      } else if (typeof query_string[pair[0]] === "string") {
-        var arr = [ query_string[pair[0]], pair[1] ];
-        query_string[pair[0]] = arr;
-        // If third or later entry with this name
-      } else {
-        query_string[pair[0]].push(pair[1]);
-      }
-    } 
-    return query_string;
-  } ();
-  </script>
 </head>
 <style type="text/css">
 
@@ -73,44 +22,33 @@ h2 {
   width: 50%;
 }
 
-input[type='range'] {
-  -webkit-appearance: none;
-  padding-left:2px; padding-right:2px;
-  -webkit-border-radius: 5px;
-  background-image: -webkit-linear-gradient(top, #000000, #333333, #000000);
-}
-
 .ui-content {
+
   text-align: center;
-  width: 45%;
+  width: 50%;
   margin: 0 auto;
 }
 
 </style>
 <body>
 
-   <div data-role="page">
+  <div data-role="page">
     <div data-role="header">
       <h1>Preferences</h1>
     </div>
     <h2>Move the slider to your preference. -2 is low. 2 is high.</h2>
     <div data-role="main" class="ui-content">
-      <!-- <form method="post" action="demoform.asp"> -->
-      <label for="points">Heat Tolerance:</label> 
-      <div id="slider">
-        <input id="slide" type="range" min="-2" max="2" step="1" value="0" />
-      </div>
-      <!--</form>-->
+      <form method="post" action="demoform.asp">
+        <label for="points">Heat Tolerance:</label>
+        <input type="range" name="points" id="points" value="0" min="-2" max="2">
+      </form>
     </div>
     <div data-role="main" class="ui-content">
-      <!--<form method="post" action="demoform.asp">-->
-      <label for="points">Chill Tolerance:</label>
-      <div id="slider">
-        <input id="slide" type="range" min="-2" max="2" step="1" value="0" />
-      </div>
-      <br/>
-      <input type="submit" data-inline="true" value="Submit" onclick="setPreferences()">
-      <!--</form>-->
+      <form method="post" action="demoform.asp">
+        <label for="points">Chill Tolerance:</label>
+        <input type="range" name="points" id="points" value="0" min="-2" max="2">
+        <input type="submit" data-inline="true" value="Submit">
+      </form>
     </div>
   </div>
 
