@@ -91,6 +91,15 @@ function processWeather(data, pref) {
     else 
 	   result = "It's very hot. You'll want a tank top.";
 
+    if (calctemp <= 40)
+      result += "<br>You might consider a scarf and gloves.";
+
+    if (calctemp <= 0)
+      result += "<br> It is extremely cold, consider not going out.";
+
+    if (calctemp >= 75)
+      result += "<br>You might consider wearing shorts instead of pants.";
+
     document.getElementById('result').innerHTML = result;
 }
 
