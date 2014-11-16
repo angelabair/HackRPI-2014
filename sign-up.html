@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script src="js/signup.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
 	<style type="text/css">
@@ -15,7 +16,7 @@
 <body>
 	<section id="loginBox">
 		<h2>Register now</h2>
-		<form method="post" class="minimal">
+		<form method="post" class="minimal" onsubmit="signUp()">
 			<label for="username">
 				<input type="username" name="username" id="username" placeholder="Username" required="required" />
 			</label>
