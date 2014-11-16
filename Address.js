@@ -30,7 +30,7 @@ function getLatiLong() {
 
 function getWeather(Latias, Latios){
 	var URL = "http://api.openweathermap.org/data/2.5/weather?lat=" + Latias + "&lon=" + Latios + "139&APPID=35e9b3fc58da0908910ee74db4a29357";
-    console.log(URL);
+    //console.log(URL);
 	$.getJSON(URL, function(data, status) {	    
 	    processWeather(data);
    });
