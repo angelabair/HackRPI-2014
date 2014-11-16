@@ -1,4 +1,4 @@
-var Address = "Milawaukee, WI";
+var Address = "Hong Kong, China";
 var tempAddress = Address.split(" ");
 var Lati = "";
 var Longi = "";
@@ -37,8 +37,25 @@ function getWeather(Latias, Latios){
 }
 
 function processWeather(data) {
+    var pref = '{"user": { "username":"danharel", "preferences":[{"heattolerance":-1}, {"coldtolerance":1 }]}}'
+    pref = JSON.parse(pref);
+    var heat = pref.user.preferences[0].heattolerance;
+    var cold = pref.user.preferences[1].coldtolerance;
     var location = data.name;
     var temp = (data.main.temp - 273.15)*1.8 + 32;
+    var calctemp = temp;
+    if (temp >= 73) {
+	if (heat === -1)
+	    calctemp += 10;
+	else if (heat === 1)
+	    calctemp -= 10;
+    }
+    else {
+	if (cold === -1)
+	    calctemp -= 10;
+	else if (cold === 1)
+	    calctemp += 10;
+    }
     temp = Math.round(temp*100)/100;
     console.log("Location: " + location);
     console.log("Temperature: " + temp);
@@ -47,4 +64,18 @@ function processWeather(data) {
     for (i = 0; i < data.weather.length; i++) {
 	console.log(data.weather[i].main);
     }
+    //console.log("Adjusted Temp: " + calctemp);
+
+    if (calctemp <= 30)
+	console.log("It's cold. You'll need a heavy coat.");
+    else if (calctemp <= 50)
+	console.log("It's pretty cold. You'll need a jacket.");
+    else if (calctemp <= 65)
+	console.log("It's chilly. You'll need a sweater or a hoodie.");
+    else if (calctemp <= 72)
+	console.log("It's pleasant. You'll need a shirt.");
+    else if (calctemp <= 90)
+	console.log("It's hot. You'll want just a t-shirt.");
+    else 
+	console.log("It's very hot. You'll want a tank top.");
 }
