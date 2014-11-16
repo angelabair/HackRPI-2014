@@ -12,7 +12,7 @@ function signUp() {
 			alert("Success Message: " + res.message);
 		})
 		.fail(function(jqXHR, textStatus, errorThrown ) {
-			alert("Error message: " + errorThrown);
+			alert("Error thrown: " + errorThrown + "; Text status: " + textStatus);
 		});
 	}
 }
