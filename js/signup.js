@@ -14,7 +14,7 @@ function signUp() {
 		$.post(url+'newUser', data)
 		.done(function(res) {
 			if (res.status === 'success')
-				window.location.replace("preferences.html");
+				window.location.replace("preferences.html?username="+username);
 			else
 				alert(res.message);
 		})
