@@ -65,36 +65,51 @@
 </head>
 <style type="text/css">
 
+h2 {
+  font-size: 20px;
+}
+
 [data-role="page"] {
   width: 50%;
 }
 
-.ui-content {
+input[type='range'] {
+  -webkit-appearance: none;
+  padding-left:2px; padding-right:2px;
+  -webkit-border-radius: 5px;
+  background-image: -webkit-linear-gradient(top, #000000, #333333, #000000);
+}
 
+.ui-content {
   text-align: center;
-  width: 50%;
+  width: 45%;
   margin: 0 auto;
 }
 
 </style>
 <body>
 
-  <div data-role="page">
+   <div data-role="page">
     <div data-role="header">
       <h1>Preferences</h1>
     </div>
-
+    <h2>Move the slider to your preference. -2 is low. 2 is high.</h2>
     <div data-role="main" class="ui-content">
-      <!--<form method="post" action="demoform.asp">-->
-        <label for="points">Heat Tolerance:</label>
-        <input type="range" name="points" id="heat" value="0" min="-1" max="1">
+      <!-- <form method="post" action="demoform.asp"> -->
+      <label for="points">Heat Tolerance:</label> 
+      <div id="slider">
+        <input id="slide" type="range" min="-2" max="2" step="1" value="0" />
+      </div>
       <!--</form>-->
     </div>
     <div data-role="main" class="ui-content">
       <!--<form method="post" action="demoform.asp">-->
-        <label for="points">Chill Tolerance:</label>
-        <input type="range" name="points" id="chill" value="0" min="-1" max="1">
-        <input type="submit" data-inline="true" value="Submit" onclick="setPreferences()">
+      <label for="points">Chill Tolerance:</label>
+      <div id="slider">
+        <input id="slide" type="range" min="-2" max="2" step="1" value="0" />
+      </div>
+      <br/>
+      <input type="submit" data-inline="true" value="Submit" onclick="setPreferences()">
       <!--</form>-->
     </div>
   </div>
