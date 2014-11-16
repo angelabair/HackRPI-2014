@@ -90,7 +90,7 @@ label {
 /*SECTION CONTAINER*/
 section#loginBox {
 	text-align: center;
-	background-color: rgba(179,179,179,.5);
+	background-color: rgba(179,179,179,.65);
 	border: 1px solid rgba(0,0,0,.15);
 	border-radius: 4px;
 	box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 0 4px rgba(0,0,0,0.2);
