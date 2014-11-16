@@ -1,11 +1,10 @@
-var Address = "Hong Kong, China";
-var tempAddress = Address.split(" ");
+//var Address = document.getElementById('location').value;
 var Lati = "";
 var Longi = "";
 
 function getLatiLong() {
 	var geocoder = new google.maps.Geocoder();
-   	var address = Address;
+   	var address = document.getElementById('location').value;
 
    	if (geocoder) {
       	geocoder.geocode({ 'address': address }, function (results, status) {

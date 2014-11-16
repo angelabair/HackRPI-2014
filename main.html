@@ -8,16 +8,20 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="Address.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
 	<style type="text/css">
 	</style>
 </head>
 <body>
 	<section id="locationBox">
-	<form class="minimal">
-		<label for="location">
-			<input type="location" name="location" id="location" placeholder="Location" required="required" />
-	</form>
+	<!--<form class="minimal">-->
+		<label for="location"></label>
+			<input value="location" name="location" id="location" placeholder="Location" required ></input>
+		<!--</label>-->
+			<button type="submit" onclick="getLatiLong()">submit</button>
+	<!--</form>-->
 	</section>
 </body>	
 <footer class="container">
