@@ -61,26 +61,37 @@ function processWeather(data, pref) {
     }
     temp = Math.round(temp*100)/100;
     console.log("Location: " + location);
+    document.getElementById('location_field').innerHTML = 'Location: ' + location;
     console.log("Temperature: " + temp);
+    document.getElementById('temp').innerHTML = 'Temperature: ' + temp;
     console.log("Weather Conditions: ");
+    document.getElementById('conditions').innerHTML = 'Weather Conditions:';
     var num = data.weather.length;
     for (i = 0; i < data.weather.length; i++) {
-	console.log(data.weather[i].main);
+	    console.log(data.weather[i].main); 
+        document.getElementById('conditions').appendChild(document.createElement("br"));
+        var newElement = document.createElement("span");
+        newElement.innerHTML = data.weather[i].main;
+        document.getElementById('conditions').appendChild(newElement);
     }
     //console.log("Adjusted Temp: " + calctemp);
 
+    var result;
+
     if (calctemp <= 30)
-	console.log("It's cold. You'll need a heavy coat.");
+	   result = "It's cold. You'll need a heavy coat.";
     else if (calctemp <= 50)
-	console.log("It's pretty cold. You'll need a jacket.");
+	   result = "It's pretty cold. You'll need a jacket.";
     else if (calctemp <= 65)
-	console.log("It's chilly. You'll need a sweater or a hoodie.");
+	   result = "It's chilly. You'll need a sweater or a hoodie.";
     else if (calctemp <= 72)
-	console.log("It's pleasant. You'll need a shirt.");
+	   result = "It's pleasant. You'll need a shirt.";
     else if (calctemp <= 90)
-	console.log("It's hot. You'll want just a t-shirt.");
+	   result = "It's hot. You'll want just a t-shirt.";
     else 
-	console.log("It's very hot. You'll want a tank top.");
+	   result = "It's very hot. You'll want a tank top.";
+
+    document.getElementById('result').innerHTML = result;
 }
 
 var QueryString = function () {
