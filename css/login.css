@@ -30,6 +30,14 @@ h2 {
 	margin: 0 0 24px 0;
 }
 
+h3 {
+	text-align: center;
+	color: rgb(34,34,34);
+	font-size: 1.1em;	
+	font-weight: 100;
+	margin: 0 0 24px 0;
+}
+
 label {
 	display: inline-block;
 	text-align: center;
