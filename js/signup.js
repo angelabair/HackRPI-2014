@@ -9,10 +9,10 @@ function signUp() {
 			password: password
 		})
 		.done(function(res) {
-			alert(res.message);
+			alert("Success Message: " + res.message);
 		})
 		.fail(function(jqXHR, textStatus, errorThrown ) {
-			alert(textStatus);
+			alert("Error message: " + errorThrown);
 		});
 	}
 }
