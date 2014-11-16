@@ -27,17 +27,28 @@
 				<input type="password" name="password" id="password" placeholder="Password" required="required" />
 			</label>
 			<label for="confirm_password">
-				<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required="required"/>
+				<input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required="required" oninput="check(this)"/>
 			</label>
-			<button type="submit" class="btn-minimal">Sign up</button>
-			<div class="login-links">
-				<a href="forgot-password.html" class="forgot-password">Forgot password?</a>
-				<br>
-				<a href="index.html" class="new-account">Already have an account? <strong>Sign In!</strong></a>
-				<span class="clearfix"></span>
-			</div>
-		</form>
-	</section>
+			<script language='javascript' type='text/javascript'>
+			function check(input) {
+				if (input.value != document.getElementById('password').value) {
+					input.setCustomValidity('Password Must be Matching.');
+				} else {
+				// input is valid -- reset the error message
+					input.setCustomValidity('');
+					signUp();
+				}
+			}
+			</script>
+<button type="submit" class="btn-minimal">Sign up</button>
+<div class="login-links">
+	<a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+	<br>
+	<a href="index.html" class="new-account">Already have an account? <strong>Sign In!</strong></a>
+	<span class="clearfix"></span>
+</div>
+</form>
+</section>
 </body>	
 <footer class="container">
 	<p id="footer-text">
