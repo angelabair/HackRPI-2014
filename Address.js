@@ -47,18 +47,28 @@ function processWeather(data, pref) {
     var location = data.name;
     var temp = (data.main.temp - 273.15)*1.8 + 32;
     var calctemp = temp;
-    if (temp >= 73) {
-	if (heat === -1)
+    
+   if (temp >= 73) {
+	 if (heat == -2)
 	    calctemp += 10;
-	else if (heat === 1)
+	else if (heat == 2)
 	    calctemp -= 10;
+  else if (heat == -1)
+      calctemp += 5;
+  else if (heat == 1)
+      calctemp -= 5;
     }
+
     else {
-	if (cold === -1)
+	if (cold == -2)
 	    calctemp -= 10;
-	else if (cold === 1)
+	else if (cold == 2)
 	    calctemp += 10;
-    }
+  else if (cold == -1)
+      calctemp -= 5;
+  else if (cold == 1)
+      calctemp += 5;
+  }
     temp = Math.round(temp*100)/100;
     console.log("Location: " + location);
     document.getElementById('location_field').innerHTML = 'Location: ' + location;
@@ -77,7 +87,7 @@ function processWeather(data, pref) {
     //console.log("Adjusted Temp: " + calctemp);
 
     var result;
-
+    console.log(calctemp);
     if (calctemp <= 30)
 	   result = "It's cold. You'll need a heavy coat.";
     else if (calctemp <= 50)
