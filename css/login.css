@@ -58,7 +58,7 @@ label {
 	padding: 10px 20px;
 	text-decoration: none;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-	text-transform: uppercase;
+	text-transtable: uppercase;
 
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
@@ -100,18 +100,19 @@ section#loginBox {
 	border-radius: 15px;
 }
 
-/*FORM*/
-form.minimal label {
+/*table*/
+table.minimal label {
+
 	text-align: center;
 	display: block;
 	margin: 6px 0;
 	padding-left: 30px;
 }
 
-form.minimal input[type="username"],
-form.minimal input[type="email"],
-form.minimal input[type="password"],
-form.minimal textarea {
+table.minimal input[type="username"],
+table.minimal input[type="email"],
+table.minimal input[type="password"],
+table.minimal textarea {
 	background-color: rgb(255,255,255);
 	border: 1px solid rgb( 186, 186, 186 );
 	border-radius: 2px;
@@ -131,11 +132,11 @@ form.minimal textarea {
 	transition: all 0.1s linear;
 }
 
-form.minimal input[type="username"]:focus,
-form.minimal input[type="email"]:focus,
-form.minimal input[type="password"]:focus,
-form.minimal textarea:focus,
-form.minimal select:focus { 
+table.minimal input[type="username"]:focus,
+table.minimal input[type="email"]:focus,
+table.minimal input[type="password"]:focus,
+table.minimal textarea:focus,
+table.minimal select:focus { 
 	border-color: #4195fc;
 	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px #4195fc;
 	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px #4195fc;
@@ -143,11 +144,11 @@ form.minimal select:focus {
 	color: rgb(0,0,0);
 }
 
-form.minimal input[type="username"]:invalid:focus,
-form.minimal input[type="email"]:invalid:focus,
-form.minimal input[type="password"]:invalid:focus,
-form.minimal textarea:invalid:focus,
-form.minimal select:invalid:focus { 
+table.minimal input[type="username"]:invalid:focus,
+table.minimal input[type="email"]:invalid:focus,
+table.minimal input[type="password"]:invalid:focus,
+table.minimal textarea:invalid:focus,
+table.minimal select:invalid:focus { 
 	border-color: rgb(248,66,66);
 	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgb(248,66,66);
 	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 8px rgb(248,66,66);

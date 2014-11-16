@@ -16,12 +16,19 @@
 </head>
 <body>
 	<section id="locationBox">
-	<!--<form class="minimal">-->
+		<!-- <form class="minimal"> -->
 		<label for="location"></label>
-			<input value="location" name="location" id="location" placeholder="Location" required ></input>
-		<!--</label>-->
-			<button type="submit" onclick="getLatiLong()">submit</button>
-	<!--</form>-->
+		<input value="location" name="location" id="location" placeholder="Location" required></input>
+		<!-- </label> -->
+		<button type="submit" id="search" onclick="getLatiLong()">submit</button>
+		<script type="text/javascript">
+		$("#location").keyup(function(event){
+			if(event.keyCode == 13){
+				$("#search").click();
+			}
+		});
+		</script>
+		<!-- </form> -->
 	</section>
 </body>	
 <footer class="container">

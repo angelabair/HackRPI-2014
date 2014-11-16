@@ -42,7 +42,7 @@
 <body>
 	<section id="loginBox">
 		<h2>Login</h2>
-		<!--<form class="minimal">-->
+		<table class="minimal">
 			<label for="username">
 				<input type="username" name="username" id="username" placeholder="Username" required="required" />
 			</label>
@@ -53,13 +53,28 @@
 				<label><input type="checkbox"> Remember me</label>
 			</div>
 			<button type="submit" id="submit" class="btn-minimal" onclick="login()">Sign in</button>
+
+			<!-- Submit with enter key -->
+			<script type="text/javascript">
+			$("#username").keyup(function(event){
+				if(event.keyCode == 13){
+					$("#submit").click();
+				}
+			});
+			$("#password").keyup(function(event){
+				if(event.keyCode == 13){
+					$("#submit").click();
+				}
+			});
+			</script>
+
 			<div class="login-links">
 				<a href="forgot-password.html" class="forgot-password">Forgot password?</a>
 				<br>
 				<a href="sign-up.html" class="new-account">Don't have an account? <strong>Sign Up!</strong></a>
 				<span class="clearfix"></span>
 			</div>
-		<!--</form>-->
+		</table>
 	</section>
 </body>	
 <footer class="container">
