@@ -12,9 +12,67 @@
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script> 
 	<style type="text/css">
+	h5 {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+ 		font-weight: 300;
+ 		font-size: 25px;
+	}
+
+	#popup
+	{
+		border-radius: 15px;
+		text-align: center;
+		position:absolute;
+		display:none;
+		top:200px;
+		left:50%;
+		width:500px; 
+		margin-left:-250px;
+		border:1px solid blue; 
+		padding:20px;
+		background-color:rgba(179,179,179,.95);
+	}
+
+	.close-btn {
+		padding-top: 10px;
+		cursor: pointer;
+		border: 1px solid #333;
+		padding: 2% 5%;
+		background: #a9e7f9; /* fallback */
+		background: -moz-linear-gradient(top,  #a9e7f9 0%, #77d3ef 4%, #05abe0 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9e7f9), color-stop(4%,#77d3ef), color-stop(100%,#05abe0));
+		background: -webkit-linear-gradient(top,  #a9e7f9 0%,#77d3ef 4%,#05abe0 100%);
+		background: -o-linear-gradient(top,  #a9e7f9 0%,#77d3ef 4%,#05abe0 100%);
+		background: -ms-linear-gradient(top,  #a9e7f9 0%,#77d3ef 4%,#05abe0 100%);
+		background: linear-gradient(to bottom,  #a9e7f9 0%,#77d3ef 4%,#05abe0 100%);
+		border-radius: 4px;
+		box-shadow: 0 0 4px rgba(0,0,0,0.3);
+	}
+
+	.close-btn:hover {
+		background: #05abe0;
+	}
+
 	</style>
 </head>
-<body>
+<body onload="popup('popUpDiv')">
+	<div id="popup">
+		<h5>Did we make a good suggestion last time?</h5>
+		<button class="close-btn">Too cold</button>
+		<button class="close-btn">Yes</button>
+		<button class="close-btn">Too hot</button>
+	</div>
+	<script type="text/javascript">
+	function show_popup()
+	{
+		document.getElementById('popup').style.display = 'block'; 
+	}
+
+	window.onload = show_popup;
+	 $('.close-btn').click(function(){
+        $('#popup').hide(); // hide the popup
+    });
+	</script>
 	<section id="locationBox">
 		<!-- <form class="minimal"> -->
 		<label for="location"></label>
@@ -30,12 +88,12 @@
 		</script>
 		<!-- </form> -->
 	</div>
-		<p id='location_field'></p>
-		<p id='temp'></p>
-		<p id='conditions'></p>
-		<p id='result'></p>
-	</div>
-	</section>
+	<p id='location_field'></p>
+	<p id='temp'></p>
+	<p id='conditions'></p>
+	<p id='result'></p>
+</div>
+</section>
 </body>	
 <footer class="container">
 	<h4 id="footer-text">
