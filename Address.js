@@ -83,7 +83,7 @@ function processWeather(data, pref) {
     console.log("Location: " + location);
     document.getElementById('location_field').innerHTML = 'Location: ' + location;
     console.log("Temperature: " + temp);
-    document.getElementById('temp').innerHTML = 'Temperature: ' + temp;
+    document.getElementById('temp').innerHTML = 'Temperature: ' + temp + ' ºF';
     console.log("Weather Conditions: ");
     document.getElementById('conditions').innerHTML = 'Weather Conditions:';
     var num = data.weather.length;
