@@ -1,4 +1,4 @@
-var Address = "1600 Amphitheatre Parkway, Mountain View, CA";
+var Address = "Milawaukee, WI";
 var tempAddress = Address.split(" ");
 var Lati = "";
 var Longi = "";
@@ -26,11 +26,25 @@ function getLatiLong() {
    	else {
    		document.write("Invalid script. Ya dun goof'd");
    	}  
-};
+}
 
 function getWeather(Latias, Latios){
 	var URL = "http://api.openweathermap.org/data/2.5/weather?lat=" + Latias + "&lon=" + Latios + "139&APPID=35e9b3fc58da0908910ee74db4a29357";
-	$.getJSON(URL, function(data, status) {
-      console.log(data);
+    console.log(URL);
+	$.getJSON(URL, function(data, status) {	    
+	    processWeather(data);
    });
+}
+
+function processWeather(data) {
+    var location = data.name;
+    var temp = (data.main.temp - 273.15)*1.8 + 32;
+    temp = Math.round(temp*100)/100;
+    console.log("Location: " + location);
+    console.log("Temperature: " + temp);
+    console.log("Weather Conditions: ");
+    var num = data.weather.length;
+    for (i = 0; i < data.weather.length; i++) {
+	console.log(data.weather[i].main);
+    }
 }
