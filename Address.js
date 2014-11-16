@@ -29,6 +29,8 @@ function getLatiLong() {
 };
 
 function getWeather(Latias, Latios){
-	var URL = "https://api.forecast.io/forecast/c2bf890c3c1be1255709cab189655227/" + Latias + "," + Latios;
-	console.log(URL);
+	var URL = "http://api.openweathermap.org/data/2.5/weather?lat=" + Latias + "&lon=" + Latios + "139&APPID=35e9b3fc58da0908910ee74db4a29357";
+	$.getJSON(URL, function(data, status) {
+      console.log(data);
+   });
 }
