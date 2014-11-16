@@ -29,7 +29,7 @@ function getLatiLong() {
 
 function getWeather(Latias, Latios){
 	var URL = "http://api.openweathermap.org/data/2.5/weather?lat=" + Latias + "&lon=" + Latios + "139&APPID=35e9b3fc58da0908910ee74db4a29357";
-    //console.log(URL);
+    console.log(URL);
 	$.getJSON(URL, function(data, status) {	    
 	    getPreferences(data, processWeather);
    });
@@ -47,16 +47,26 @@ function processWeather(data, pref) {
     var location = data.name;
     var temp = (data.main.temp - 273.15)*1.8 + 32;
     var calctemp = temp;
-    
-   if (temp >= 73) {
-	 if (heat == -2)
+    var raining = 0;
+    var windy = 0;
+    var snowing = 0;
+    for (i = 0; i < data.weather.length; i++) {
+	if (data.weather[i].main == 'Rain' || data.weather[i].main == 'Thunderstorm')
+	    raining = 1;
+	if (data.weather[i].main == 'Snow')
+	    snowing = 1;
+    }
+    if (data.wind.speed >= 12)
+	windy = 1;
+    if (temp >= 73) {
+	if (heat == -2)
 	    calctemp += 10;
 	else if (heat == 2)
 	    calctemp -= 10;
-  else if (heat == -1)
-      calctemp += 5;
-  else if (heat == 1)
-      calctemp -= 5;
+	else if (heat == -1)
+	    calctemp += 5;
+	else if (heat == 1)
+	    calctemp -= 5;
     }
 
     else {
@@ -64,11 +74,11 @@ function processWeather(data, pref) {
 	    calctemp -= 10;
 	else if (cold == 2)
 	    calctemp += 10;
-  else if (cold == -1)
-      calctemp -= 5;
-  else if (cold == 1)
-      calctemp += 5;
-  }
+	else if (cold == -1)
+	    calctemp -= 5;
+	else if (cold == 1)
+	    calctemp += 5;
+    }
     temp = Math.round(temp*100)/100;
     console.log("Location: " + location);
     document.getElementById('location_field').innerHTML = 'Location: ' + location;
@@ -95,7 +105,7 @@ function processWeather(data, pref) {
     else if (calctemp <= 65)
 	   result = "It's chilly. You'll need a sweater or a hoodie.";
     else if (calctemp <= 72)
-	   result = "It's pleasant. You'll need a shirt.";
+	   result = "It's mild. You'll need a shirt.";
     else if (calctemp <= 90)
 	   result = "It's hot. You'll want just a t-shirt.";
     else 
@@ -110,6 +120,14 @@ function processWeather(data, pref) {
     if (calctemp >= 75)
       result += "<br>You might consider wearing shorts instead of pants.";
 
+    if (raining) {
+	if (windy)
+	    result += "<br>It's raining and windy. Wear a raincoat!";
+	else
+	    result += "<br>It's raining. You'll need an umbrella or a raincoat.";
+    }
+    if (snowing)
+	result += "<br>It's snowing. You'll want to wear boots.";
     document.getElementById('result').innerHTML = result;
 }
 
