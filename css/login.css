@@ -186,3 +186,8 @@ section#locationBox {
 footer {
 	text-align: center;
 }
+
+#footer-text {
+	font-size: 10px;
+}
+}
